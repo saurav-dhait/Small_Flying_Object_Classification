@@ -130,7 +130,7 @@ def test_model_with_metrics(net, test_loader, device, num_classes, wandb_log_sta
 
 def main():
     # hyperparameters
-    batch_size = 128
+    batch_size = 64
     num_epochs = 10
     learning_rate = 0.001
     num_classes = 3
