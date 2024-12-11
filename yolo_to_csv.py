@@ -44,8 +44,9 @@ def generate_csv(yolo_dir, output_csv_path):
 
 
 # Paths
-yolo_dataset_path = 'dataset/FLYING_OBJECT_DATASET_SMALL'
-output_csv_path = 'dataset/dataset_labels.csv'
+yolo_dataset_path = r'dataset/Smallmerged'
+output_csv_path = r'dataset/dataset_labels.csv'
 
 # Generate CSV
 generate_csv(yolo_dataset_path, output_csv_path)
+print("Done")

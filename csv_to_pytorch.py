@@ -7,23 +7,18 @@ from PIL import Image
 
 
 def make_transform(model_name):
-    transform = None
     if model_name == "alexnet":
-        # Transform: Resizing to 227x227 to match AlexNet input size and normalizing
-        transform = transforms.Compose([
-            transforms.Resize(227),
+        return transforms.Compose([
+            transforms.Resize((227, 227)),  # Ensure consistent resizing
             transforms.ToTensor(),
             transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
         ])
     else:
-        # This is for all the other Models
-        transform = transforms.Compose([
-            transforms.Resize(224),
+        return transforms.Compose([
+            transforms.Resize((224, 224)),  # Ensure consistent resizing
             transforms.ToTensor(),
             transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
         ])
-    return transform
-
 
 def dataset_maker(model_name, batch_size):
     class YoloClassificationDataset(Dataset):
