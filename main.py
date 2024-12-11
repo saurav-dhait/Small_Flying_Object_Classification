@@ -137,11 +137,11 @@ def main():
     wandb_log_status = True
 
     # Dataset
-    train_loader, val_loader, test_loader = dataset_maker("other", batch_size)
+    train_loader, val_loader, test_loader = dataset_maker("alexnet", batch_size)
 
     # Model, Loss function, and Optimizer
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    net = models.efficientnet_b0(num_classes=num_classes).to(device)
+    net = models.alexnet(num_classes=num_classes).to(device)
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(net.parameters(), lr=learning_rate)
 
@@ -160,9 +160,9 @@ def main():
     if wandb_log_status:
         wandb.init(
             # Set the project name
-            project="DRDO 2",
+            project="DRDO 3",
             # Set the run name
-            name=f"E-N",
+            name=f"AlexNet",
             # Track hyperparameters and run metadata
             config=config
         )
