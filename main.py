@@ -131,13 +131,13 @@ def test_model_with_metrics(net, test_loader, device, num_classes, wandb_log_sta
 def main():
     # hyperparameters
     batch_size = 64
-    num_epochs = 20
+    num_epochs = 10
     learning_rate = 0.001
     num_classes = 4
     wandb_log_status = True
 
     # Dataset
-    train_loader, val_loader, test_loader = dataset_maker("alexnet", batch_size)
+    train_loader, val_loader, test_loader = dataset_maker("other", batch_size)
 
     # Model, Loss function, and Optimizer
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -160,7 +160,7 @@ def main():
     if wandb_log_status:
         wandb.init(
             # Set the project name
-            project="DRDO 3",
+            project="DRDO 4",
             # Set the run name
             name=f"AlexNet",
             # Track hyperparameters and run metadata
